@@ -5,6 +5,7 @@ pytz
 databases
 sqlalchemy
 pydantic[dotenv]
+pydantic-settings
 asyncpg
 psycopg2
 passlib

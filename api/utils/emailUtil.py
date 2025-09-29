@@ -8,11 +8,11 @@ conf = ConnectionConfig(
     MAIL_USERNAME=config("MAIL_USERNAME"),
     MAIL_PASSWORD=config("MAIL_PASSWORD"),
     MAIL_FROM=config("MAIL_FROM"),
-    MAIL_PORT=config("MAIL_PORT"),
+    MAIL_PORT=int(config("MAIL_PORT")),
     MAIL_SERVER=config("MAIL_SERVER"),
-    MAIL_TLS=config("MAIL_TLS"),
-    MAIL_SSL=config("MAIL_SSL"),
-    USE_CREDENTIALS=config("USE_CREDENTIALS")
+    MAIL_STARTTLS=config("MAIL_TLS", cast=bool, default=True),  # Đổi tên
+    MAIL_SSL_TLS=config("MAIL_SSL", cast=bool, default=False),  # Đổi tên
+    USE_CREDENTIALS=config("USE_CREDENTIALS", cast=bool, default=True)
 )
 
 

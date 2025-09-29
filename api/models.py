@@ -11,19 +11,19 @@ users = Table(
     Column('created_on', DateTime),
     Column('status', String(1)),
 )
-
+# Bước 1
 otps = Table(
     'my_otps', metadata,
     Column('id', Integer, Sequence('otp_id_seq'), primary_key=True),
-    Column('recipient_id', String(100)),
-    Column('session_id', String(100)),
+    Column('recipient_id', String(100)),#email hoặc sđt
+    Column('session_id', String(100)), # Phân biệt các phiên gửi otp khác nhau cùng 1 email
     Column('otp_code', String(6)),
     Column('status', String(1)),
     Column('created_on', DateTime),
     Column('updated_on', DateTime),
-    Column('otp_failed_count', Integer, default=0),
+    Column('otp_failed_count', Integer, default=0), # đếm số lần otp fail
 )
-
+#Bước 2
 otpBlocks = Table(
     'my_otp_blocks', metadata,
     Column('id', Integer, Sequence('otp_block_id_seq'), primary_key=True),
